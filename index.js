@@ -5,11 +5,11 @@ const chromium = require('@sparticuz/chromium');
 const app = express();
 const port = process.env.PORT || 8080;
 
+// Default URL to scrape
+const defaultUrl = 'https://www.amazon.in/BRUTON-Lite-Sport-Shoes-Running/dp/B0DHH7TMQ1';
+
 app.get('/scrape', async (req, res) => {
-    const url = req.query.url; // Get the URL from the query parameter
-    if (!url) {
-        return res.status(400).json({ error: 'Please provide a valid product URL' });
-    }
+    const url = defaultUrl; // Use the default URL instead of the query parameter
 
     let browser = null;
 
